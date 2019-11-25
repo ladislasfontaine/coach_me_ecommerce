@@ -7,11 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = []
+carts = []
+orders = []
 categories = []
 items = []
 
 10.times do
-  users << User.create(email: Faker::Internet.email, password: "secret")
+  user = User.create(email: Faker::Internet.email, password: "secret")
+  carts << Cart.new(user: user)
+  orders << Order.new(user: user)
+  users << user
 end
 
 categories_base = ["Fitness", "Nutrition", "Cross Training", "Vêtements", "Protéines", "Musculation"]
@@ -39,3 +44,8 @@ items << Item.create(
   description: "Nouveau design, surface large de 48 x 150 cm, puissance en pic de 4 CV, 58 programmes, vitesse max de 20 km/h, 15 niveaux d'inclinaison, 6 points d'amortis sur la surface de course + 2 amortis 'System Flex', ceinture thoracique incluse, support tablette tactile, pliable, branchement MP3.", 
   price: 749.00
 )
+
+# 15.times do
+#   CartItem.create(cart: , item: )
+#   OrderItem.create(order: , item: )
+# end
