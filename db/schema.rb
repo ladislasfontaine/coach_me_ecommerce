@@ -33,10 +33,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_152420) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_categories_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -44,19 +42,19 @@ ActiveRecord::Schema.define(version: 2019_11_25_152420) do
     t.text "description"
     t.decimal "price"
     t.string "image_url"
-    t.bigint "categories_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categories_id"], name: "index_items_on_categories_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "cart_id"
+    t.bigint "order_id"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_order_items_on_cart_id"
     t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
