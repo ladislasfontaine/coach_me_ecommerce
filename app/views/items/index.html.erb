@@ -1,0 +1,10 @@
+<h1>Welcome on CoachMe</h1>
+<h3>Tous nos produits</h3>
+
+<% @items.each do |item| %>
+  <%= link_to item_path(item.id) do %>
+    <h4><%= item.title %> <%= item.price %>€</h4>
+  <% end %>
+  <%= image_tag item.image_url, alt: "Produit", style:"width: 300px; height: 300px; object-fit: contain;" %>
+  <p><%= item.description %></p>
+<% end %>
