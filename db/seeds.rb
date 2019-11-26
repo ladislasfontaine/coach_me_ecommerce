@@ -14,8 +14,8 @@ items = []
 
 10.times do
   user = User.create(email: Faker::Internet.email, password: "secret")
-  carts << Cart.new(user: user)
-  orders << Order.new(user: user)
+  carts << Cart.create(user: user)
+  orders << Order.create(user: user)
   users << user
 end
 
