@@ -26,7 +26,9 @@
           <i class="fas fa-shopping-cart fa-lg"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Mes articles', cart_path(current_user.id), class: "dropdown-item" %>
+          <% if user_signed_in? %>
+            <%= link_to 'Mes articles', cart_path(current_user.id), class: "dropdown-item" %>
+          <% end %>
           <a class="dropdown-item" href="#">Adresse de livraison</a>
           <a class="dropdown-item" href="#">Paiement</a>
         </div>
