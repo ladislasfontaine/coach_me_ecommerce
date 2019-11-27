@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  after_create :welcome_send
+  after_create :create_cart
+ ## after_create :welcome_send
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,6 +17,14 @@ class User < ApplicationRecord
   validates :password,
   presence: true,
   length: { in: 6..20 }
+
+
+  # maja test 
+
+  def create_cart
+    cart = Cart.create(user_id: self.id)
+  end
+
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

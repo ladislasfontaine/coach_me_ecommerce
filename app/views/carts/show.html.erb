@@ -1,0 +1,12 @@
+<h3>Show cart</h3>
+
+<% @cart.cart_items.each do |cart_item| %>
+  <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
+  <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
+<% end %>
+
+<%= link_to 'Accueil', root_path %>
+
+<h3>Total</h3>
+
+<%= @total %> €
