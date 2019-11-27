@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = []
-carts = []
+## carts =
 orders = []
 categories = []
 items = []
 
 10.times do
   user = User.create(email: Faker::Internet.email, password: "secret")
-  carts << Cart.create(user: user)
+ ## carts << Cart.create(user: user)
   orders << Order.create(user: user)
   users << user
 end
@@ -54,6 +54,6 @@ items << Item.create!(
 )
 
 15.times do
-  CartItem.create(cart: carts.sample, item: items.sample)
+ ##  CartItem.create(cart: carts.sample, item: items.sample)
   OrderItem.create(order: orders.sample, item: items.sample)
 end
