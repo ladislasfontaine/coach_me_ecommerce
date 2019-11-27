@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :cart_item
   end
-  root to: "items#welcome"
+  root "items#welcome"
 end
