@@ -1,0 +1,9 @@
+<p>show cart</p>
+
+<% @cart_items.each do |item| %>
+<p> <%= item.title %> </p>
+ <p> <%= item.price %> </p>
+
+<% end %>	
+
+<%= link_to 'Accueil', root_path %>
