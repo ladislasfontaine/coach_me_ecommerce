@@ -12,8 +12,10 @@ class CartsController < ApplicationController
 
 	def show
 		@cart = Cart.find(current_user.id)
-		@cart_items = @cart.items
+		@cart_items = @cart.cart_items
 		
+		@total = 0
+		@cart.items.each{ |item| @total += item.price }
 	end # show
 
 
