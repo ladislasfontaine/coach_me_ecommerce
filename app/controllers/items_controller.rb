@@ -7,4 +7,9 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
+
+  def welcome
+    @items = Item.all
+  end
+  
 end
