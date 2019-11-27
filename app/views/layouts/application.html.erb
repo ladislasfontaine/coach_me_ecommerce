@@ -15,6 +15,55 @@
   </head>
 
   <body>
+  	<nav class="navbar fixed-top shadow-sm navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mr-5" href="#">CoachMe</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Découvrir</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Produits <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control orange-border mr-sm-2" type="text" placeholder="Search">
+          <!-- type="submit" -->
+          <a class="search-button mx-3"><i class="fas fa-search fa-md"></i></a>
+        </form>
+        <ul class="nav-item dropdown mt-3">
+            <a class="mx-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart fa-lg"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Mes articles</a>
+              <a class="dropdown-item" href="#">Adresse de livraison</a>
+              <a class="dropdown-item" href="#">Paiement</a>
+            </div>
+        </ul>
+        <ul class="nav-item dropdown mt-3">
+          <a class="mx-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-lg"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if user_signed_in? %>
+              <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "dropdown-item" %></button>
+            <% else %>
+              <%= link_to 'Se connecter', new_user_session_path, class: "dropdown-item" %></button>
+              <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %></button>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
