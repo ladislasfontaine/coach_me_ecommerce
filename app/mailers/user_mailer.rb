@@ -5,6 +5,11 @@ class UserMailer < ApplicationMailer
     @user = user
     @url = 'https://coach-me-master.herokuapp.com/users/sign_in'
 
-    mail(to: @user.email, subject: 'Bienvenue chez CoachMe !')
+    mail(
+      from: 'fontaine.ladislas@gmail.com', 
+      to: @user.email, 
+      subject: 'Bienvenue chez CoachMe !'
+      # delivery_method_options: { api_key: ENV['MAILJET_LOGIN'], secret_key: ENV['MAILJET_PWD'], version: 'v3.1' }
+    )
   end
 end
