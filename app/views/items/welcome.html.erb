@@ -1,5 +1,5 @@
 
-	<div class="jumbotron mt-5">
+	<div class="jumbotron">
 	  <h1 class="display-4 my-4"><span class="orange">Black</span><span class="mid-grey">Friday</span></h1>
 	  <p class="lead">Des promotions comme jamais vous en avez vu, 
 	  	<br>et tout ça uniquement sur CoachMe.</p>
@@ -40,39 +40,20 @@
 
 	<h2 class="text-center mt-5 mb-4">Nos produits</h2>
 
-	<% @items.each do |item| %>
-		<%= link_to item_path(item.id) do %>
-			<%= item.title %>
-		<% end %>
-		<%= image_tag item.image_url, alt: "Produit" %>
-		<%= item.price %>€
-	<% end %>
-
 	<div class="card-group">
-	  <div class="card">
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">Card title</h5>
-	      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">Card title</h5>
-	      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">Card title</h5>
-	      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-	    </div>
-	  </div>
+
+		<% @items.each do |item| %>
+	    <div class="card col-md-3 my-2 mx-4" style="min-width: 300px;">
+	       <%= image_tag item.image_url, alt: "image produit", class:"d-block w-100" %>
+	       <div class="card-body">
+	         <h5 class="card-title"><%= item.title %> </h5>
+	         <h6> <%= item.price %> € </h6>
+	         <p class="card-text"><%= item.description %></p>
+	         <a href="<%= item_path(item.id) %>" class="btn btn-primary">Voir le produit</a>
+	       </div>
+	     </div>
+		<% end %>
+
 	</div>
 
 	<!-- carousel -->
