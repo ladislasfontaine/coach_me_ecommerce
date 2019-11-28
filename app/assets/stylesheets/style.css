@@ -266,6 +266,10 @@ header p {
 	transform: translateX(0%);
 }
 
+.decoration-none a {
+	color: #868E96;
+}
+
 /***************/
 /*  	AVIS  	 */
 /***************/
