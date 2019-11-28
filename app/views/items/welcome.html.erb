@@ -40,188 +40,39 @@
 
 	<h2 class="text-center mt-5 mb-4">Nos produits</h2>
 
-	<div class="container-fluid">
+	<% @items.each do |item| %>
+		<%= link_to item_path(item.id) do %>
+			<%= item.title %>
+		<% end %>
+		<%= image_tag item.image_url, alt: "Produit" %>
+		<%= item.price %>€
+	<% end %>
 
-	  <section>
-
-	      <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2 product-carousel" data-ride="carousel">
-
-	        <div class="carousel-inner" role="listbox">
-
-	          <div class="carousel-item active mx-auto">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(4).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-										  	<h5 class="card-title font-weight-bold mb-0"></h5>
-		                  <p class="mid-grey mb-0"></p>
-		                  <p class="orange mb-0"></p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-
-	          <% @items.each do |item| %>
-          		<%= link_to item_path(item.id) do %>
-          			<%= item.title %>
-          		<% end %>
-          		<%= image_tag item.image_url, alt: "Produit" %>
-          		<%= item.price %>€
-          	<% end %>
-
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(1).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Indie City</h5>
-	                  <p class="mid-grey mb-0">Pixies</p>
-	                  <p class="orange mb-0">14,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(7).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Year</h5>
-	                  <p class="mid-grey mb-0">Indielectru</p>
-	                  <p class="orange mb-0">12,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(8).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">L'Hiver Indien</h5>
-	                  <p class="mid-grey mb-0">Baloji</p>
-	                  <p class="orange mb-0">10,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(6).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Indie Funk</h5>
-	                  <p class="mid-grey mb-0">Generation Funk</p>
-	                  <p class="orange mb-0">19,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(2).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Rockferry</h5>
-	                  <p class="mid-grey mb-0">Duffy</p>
-	                  <p class="orange mb-0">17,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(3).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Female Indie Pop</h5>
-	                  <p class="mid-grey mb-0">Various artists</p>
-	                  <p class="orange mb-0">9,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(5).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">Rock 'N' Roll</h5>
-	                  <p class="mid-grey mb-0">Chuck Berry</p>
-	                  <p class="orange mb-0">29,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="carousel-item">
-	            <div class="col-12 col-md-4 col-lg-2 mx-auto">
-	              <div class="card mb-2">
-	                <div class="view overlay">
-	                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(9).jpg" alt="Card image cap">
-	                  <a href="#!">
-	                    <div class="mask rgba-white-slight"></div>
-	                  </a>
-	                </div>
-	                <div class="card-body p-3">
-	                  <h5 class="card-title font-weight-bold mb-0">High Voltage</h5>
-	                  <p class="mid-grey mb-0">AC/DC</p>
-	                  <p class="orange mb-0">24,99 $</p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-
-	        </div>
-
-	      </div>
-
-	      <!--Controls-->
-	        <div class="my-3 text-center">
-	        	<a class="btn-floating btn-md" href="#carousel-example-multi" data-slide="prev"><button class="btn btn-primary"><i class="fas fa-chevron-left"></i></button></a>
-	        	<a class="btn-floating btn-md" href="#carousel-example-multi" data-slide="next"><button class="btn btn-primary"><i class="fas fa-chevron-right"></i></button></a>
-	        </div>
-	      <!--/.Controls-->
-	  </section>
+	<div class="card-group">
+	  <div class="card">
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <h5 class="card-title">Card title</h5>
+	      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <h5 class="card-title">Card title</h5>
+	      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <h5 class="card-title">Card title</h5>
+	      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+	      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	    </div>
+	  </div>
 	</div>
 
 	<!-- carousel -->
@@ -254,7 +105,7 @@
 		    <div class="card-body">
 		      <h5 class="card-title">Le Black Friday ? Qu'est ce que c'est ?</h5>
 		      <p class="card-text">Le jour ultime pour faire des bonnes affaires</p>
-		      	<a href="#" class="btn btn-primary">Lire l'article</a>
+		      	<a target="_blank" href="https://www.bfmtv.com/pratique-tech/qu-est-ce-que-le-black-friday-1801411.html" class="btn btn-primary">Lire l'article</a>
 		    </div>
 		  </div>
 	 	</div>
@@ -265,7 +116,7 @@
 		    <div class="card-body">
 		      <h5 class="card-title">Le Black Friday ? Qu'est ce que c'est ?</h5>
 		      <p class="card-text">Le jour ultime pour faire des bonnes affaires</p>
-		      	<a href="#" class="btn btn-primary">Lire l'article</a>
+		      	<a target="_blank" href="https://naturalathleteclub.com/blog/proteines-vegetales-guide/" class="btn btn-primary">Lire l'article</a>
 		    </div>
 		  </div>
 		</div>

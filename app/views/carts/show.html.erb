@@ -1,8 +1,8 @@
 <h3>Mon panier</h3>
 
-<%# if @cart.items == [] %>
-  <%# <p>Pas encore d'articles dans le panier</p> %>
-<%# else %>
+<% if @cart.items == [] %>
+  <p>Pas encore d'articles dans le panier</p>
+<% else %>
   <% @cart.cart_items.each do |cart_item| %>
     <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
     <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
@@ -14,8 +14,87 @@
 
   <h3>Total</h3>
   <%= @total %> €
-<%# end %>
+<% end %>
 
 <div>
   <%= link_to 'Accueil', root_path %>
 </div>
+
+<span style="font-size: 40px; font-weight:bolder; display:flex; justify-content: center;">
+
+  <h1 style="color: #FF5630;">RECAPITULATIF DE VOTRE COMMANDE</h1>
+</span>
+
+<!-- bloc gauche, récap produits -->
+<div class="test" style="text-align: -webkit-center;">
+<div class="card mb-3" style="max-width: 1200px; display: flex;justify-content: center;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="img/produit1.png" style="max-width: 180px;" class="card-img" alt --> 
+      </div>
+    
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">T SHIRT CROSSFIT® REEBOK</h5>
+
+         <p>Quantité : 2 <i class="far fa-trash-alt" style="text-align: right;"></i></p>
+
+      <span style="display: flex;justify-content: flex-end;font-weight: 560;">
+
+        Prix unitaire : 29,90 €
+        <br>
+        Livraison : offerte
+        <br>
+        Total : XXXX
+      </span>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- bloc gauche, récap produits -->
+
+<!-- Récap produits/livraison/total -->
+
+  <div class="validation" style="display: flex;justify-content: center;">
+    <div class="card text-center" style="width: 23rem;">
+      <div class="card-body">
+        <h5 class="card-title" style="color: #FF5630;">Montant de votre commande : 999 €</h5>
+        <a href="#" class="btn btn-primary">Je valide ma commande</a>
+      </div>  
+     </div>
+  </div>
+
+<!-- Récap produits/livraison/total -->
+
+<!-- Icones infos -->
+<div class="card-deck" style="width: 100%">
+  <div class="card">
+    
+    <div class="card-body text-center">
+    <i class="fas fa-credit-card fa-4x"></i>
+      <h5 class="card-title" style="color: #FF5630;">Paiement sécurisé</h5>
+     <p class="card-text">Vos paiments sont sécurisé grâce à une clé de chiffrage unique de SSL-256bits. </p>
+    </div>
+  </div>
+  <div class="card">
+    
+    <div class="card-body text-center">
+      <i class="fas fa-shipping-fast fa-4x"></i>
+      <h5 class="card-title" style="color: #FF5630;">Livraison rapide et sécurisé</h5>
+       <p class="card-text">Votre colis sera préparé dans les meilleurs délais puis pris en charge via nos transporteurs.</p>
+    </div>
+  </div>
+  <div class="card">
+
+    <div class="card-body text-center">
+      <i class="fas fa-comments fa-4x"></i>
+      <h5 class="card-title" style="color: #FF5630;">Service client</h5>
+      <p class="card-text">Une question ? Notre service client est à votre écoute 7j/7 et 24h/24 pour répondre à vos questions.</p>
+    </div>
+  </div>
+</div>
+<!-- Icones infos -->
