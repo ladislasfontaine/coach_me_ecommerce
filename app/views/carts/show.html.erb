@@ -1,69 +1,46 @@
-<h3>Mon panier</h3>
 
-<% if @cart.items == [] %>
-  <p>Pas encore d'articles dans le panier</p>
-<% else %>
-  <% @cart.cart_items.each do |cart_item| %>
-    <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
-    <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
-  <% end %>
-
-  <div>
-    <%= link_to 'Passer commande', new_order_path %>
-  </div>
-
-  <h3>Total</h3>
-  <%= @total %> €
-<% end %>
-
-<div>
-  <%= link_to 'Accueil', root_path %>
-</div>
-
-<span style="font-size: 40px; font-weight:bolder; display:flex; justify-content: center;">
-
+<span style="font-size: 40px; font-weight:bolder; display:flex; justify-content: center; margin: 50px 0;">
   <h1 style="color: #FF5630;">RECAPITULATIF DE VOTRE COMMANDE</h1>
 </span>
 
 <!-- bloc gauche, récap produits -->
 <div class="test" style="text-align: -webkit-center;">
-<div class="card mb-3" style="max-width: 1200px; display: flex;justify-content: center;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="img/produit1.png" style="max-width: 180px;" class="card-img" alt --> 
+
+  <% @cart.cart_items.each do |cart_item| %>  
+
+  <div class="card mb-3" style="max-width: 1200px; display: flex;justify-content: center; height: 140px;">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="display: flex; justify-content: center; align-items: center;">
+        <%= image_tag cart_item.item.image_url, alt: "Produit", class:"card-img", style: "height: 120px; object-fit: contain;" %>
       </div>
-    
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">T SHIRT CROSSFIT® REEBOK</h5>
+      
+      <div class="col-md-8">
+        <div class="card-body" style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
+          <h5 class="card-title"><%= cart_item.item.title %></h5>
 
-         <p>Quantité : 2 <i class="far fa-trash-alt" style="text-align: right;"></i></p>
+          <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
 
-      <span style="display: flex;justify-content: flex-end;font-weight: 560;">
-
-        Prix unitaire : 29,90 €
-        <br>
-        Livraison : offerte
-        <br>
-        Total : XXXX
-      </span>
-    </div>
+          <span style="display: flex;justify-content: flex-end;font-weight: 560;">
+            Prix unitaire : <%= cart_item.item.price %> €
+            <br>
+            Livraison : offerte
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+  <% end %>
 </div>
 
 <!-- bloc gauche, récap produits -->
 
 <!-- Récap produits/livraison/total -->
 
-  <div class="validation" style="display: flex;justify-content: center;">
+  <div class="validation" style="display: flex;justify-content: center; margin: 30px;">
     <div class="card text-center" style="width: 23rem;">
       <div class="card-body">
-        <h5 class="card-title" style="color: #FF5630;">Montant de votre commande : 999 €</h5>
-        <a href="#" class="btn btn-primary">Je valide ma commande</a>
+        <h5 class="card-title" style="color: #FF5630;">Montant de votre commande : <%= @total %> €</h5>
+        <%= link_to 'Passer commande', new_order_path, class: "btn btn-primary" %>
       </div>  
      </div>
   </div>
@@ -71,7 +48,7 @@
 <!-- Récap produits/livraison/total -->
 
 <!-- Icones infos -->
-<div class="card-deck" style="width: 100%">
+<div class="card-deck" style="width: 100%; margin: 30px 0;">
   <div class="card">
     
     <div class="card-body text-center">
