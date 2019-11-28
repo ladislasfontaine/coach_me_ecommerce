@@ -8,7 +8,7 @@ Coach Me Ecommerce est une plateforme ecommerce pour acheter des articles de spo
 * `rails db:create`
 * `rails db:migrate`
 * `rails db:seed`
-* Pour le serveur avec stripe `PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx \`
+* Pour lancer le serveur avec stripe `PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx \`
   `SECRET_KEY=sk_test_4eC39HqLyjWDarjtT1zdp7dc rails s`
 * en local : `http://localhost:3000/`
 * en production : `https://coach-me-master.herokuapp.com/`
