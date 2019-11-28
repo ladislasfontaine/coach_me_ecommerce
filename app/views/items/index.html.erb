@@ -1,16 +1,20 @@
 
-<% @items.each do |item| %>
-    <div class="card-group justify-content-center">
-        <div class="card col-md-3 my-2 mx-4 ">
-  	       <%= image_tag item.image_url, alt: "image produit", class:"d-block w-100" %>
-           <div class="card-body">
-             <h5 class="card-title"><%= item.title %> </h5>
-             <h6> <%= item.price %> € </h6>
-             <p class="card-text"><%= item.description %></p>
-             <a href="<%= item_path(item.id) %>" class="btn btn-primary">Voir le produit</a>
-           </div>
-         </div>
-    </div>
-<% end %>
+<div class="d-flex align-content-stretch flex-wrap">
+	<div class="card-group justify-content-center">
+
+		<% @items.each do |item| %>
+	    <div class="card col-md-3 my-2 mx-4 ">
+	       <%= image_tag item.image_url, alt: "image produit", class:"d-block w-100" %>
+	       <div class="card-body">
+	         <h5 class="card-title"><%= item.title %> </h5>
+	         <h6> <%= item.price %> € </h6>
+	         <p class="card-text"><%= item.description %></p>
+	         <a href="<%= item_path(item.id) %>" class="btn btn-primary">Voir le produit</a>
+	       </div>
+	     </div>
+		<% end %>
+
+	</div>
+</div>
 
 <!-- listing produits -->
