@@ -1,0 +1,8 @@
+Bonjour <%= @admin.email %>
+<%= @user.email %> viens d'acheter :
+
+<% @user.cart.items.each do |item| %>
+ <%= item.title %>
+ <%= item.price %>
+<%= item.description %>
+<% end %>

@@ -1,7 +1,24 @@
-<h3><%= @item.title %> <%= @item.price %>€</h3>
+<div class="d-flex justify-content-center my-4">
+	<div class="card mb-3" style="max-width: 820px;">
+	  <div class="row no-gutters">
 
-<%= image_tag @item.image_url, alt: "Produit", style:"width: 300px; height: 300px; object-fit: contain;" %>
-<p><%= @item.description %></p>
+	    <div class="col-md-4", style="padding: 20px 0px;">
+	      <%= image_tag @item.image_url, alt: "Produit", style:"width: 300px; height: 300px; object-fit: contain;" %>
+	    </div>
 
-<%= link_to 'Accueil', root_path %>
-<%= link_to "Ajouter", item_cart_item_index_path(@item.id), method: 'post' %>
+	    <div class="col-md-8" style="max-width: 620px;">
+	      <div class="card-body">
+	      	<h3><%= @item.title %></h3>
+	      	<br>
+	    		<h2> <%= @item.price %>€</h2>
+	    		<h5>Livraison offerte</h5>
+	    		<hr>
+	      	<p class="card-text" style="font-size: 16px;"><%= @item.description %></p>
+	      	<button class="btn btn-secondary mt-4 mr-3"><%= link_to 'Accueil', root_path %></button>
+	      	<button class="btn btn-primary mt-4"><%= link_to "Ajouter", item_cart_item_index_path(@item.id), method: 'post' %></button>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+</div>
