@@ -3,21 +3,17 @@ class CartItemController < ApplicationController
 
 	def create
 		@item = Item.find(params[:item_id])
-		@cart = Cart.find(current_user.id)
+		@cart = current_user.cart
 		
 		CartItem.create(cart: @cart, item: @item)
-		redirect_to cart_path(current_user.id)
+		redirect_to cart_path(@cart.id)
 	end
 
 	def destroy
 		@cart_item = CartItem.find(params[:id])
 		@cart_item.destroy
 
-		redirect_to cart_path(current_user.id)
-	end
-
-	def destroy_each(cart_item)
-		cart_item.destroy
+		redirect_to cart_path(@cart.id)
 	end
 
 	private
