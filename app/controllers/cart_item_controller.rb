@@ -14,7 +14,10 @@ class CartItemController < ApplicationController
 		@cart_item.destroy
 
 		redirect_to cart_path(current_user.id)
-		
+	end
+
+	def destroy_each(cart_item)
+		cart_item.destroy
 	end
 
 	private

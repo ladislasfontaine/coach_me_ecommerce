@@ -2,7 +2,7 @@
 
 	<div class="jumbotron mt-5">
 	  <h1 class="display-4 my-4"><span class="orange">Black</span><span class="mid-grey">Friday</span></h1>
-	  <p class="lead">Des promotions comme jamais vous en avez vu, 
+	  <p class="lead">Des promotions comme jamais vous en avez vu,
 	  	<br>et tout ça uniquement sur CoachMe.</p>
 	  <a class="btn btn-primary btn-lg mt-5" href="#" role="button">Découvrir</a>
 	</div>
@@ -73,7 +73,14 @@
           		<% end %>
           		<%= image_tag item.image_url, alt: "Produit" %>
           		<%= item.price %>€
+							<%= item.description %>
+							<%= link_to "Ajouter", item_cart_item_index_path(item.id), method: 'post' %>
           	<% end %>
+<!-- Product hidden behind navbar (Has to be modified buy fronters) -->
+
+
+
+
 
 	          <div class="carousel-item">
 	            <div class="col-12 col-md-4 col-lg-2 mx-auto">

@@ -8,14 +8,14 @@
 
 users = []
 ## carts =
-orders = []
+# orders = []
 categories = []
 items = []
 
 10.times do
   user = User.create(email: Faker::Internet.email, password: "secret")
- ## carts << Cart.create(user: user)
-  orders << Order.create(user: user)
+  # carts << Cart.create(user: user)
+  # orders << Order.create(user: user)
   users << user
 end
 
@@ -53,7 +53,7 @@ items << Item.create!(
   image_url: "items/tapis_de_course.png"
 )
 
-15.times do
- ##  CartItem.create(cart: carts.sample, item: items.sample)
-  OrderItem.create(order: orders.sample, item: items.sample)
-end
+# 15.times do
+#   CartItem.create(cart: carts.sample, item: items.sample)
+#   OrderItem.create(order: orders.sample, item: items.sample)
+# end
