@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	# before_action :authenticate_user
+	before_action :authenticate_user!
 
 	def new
 		@cart = current_user.cart
@@ -7,10 +7,7 @@ class OrdersController < ApplicationController
 		current_user.cart.items.each{ |item| @order_amount += item.price }
 	end
 
-	def create
-
-		# ajouter stripe ici
-		
+	def create		
 		# Amount in cents
 		@order_amount = 0
 		current_user.cart.items.each{ |item| @order_amount += item.price }
