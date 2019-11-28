@@ -8,13 +8,12 @@ class Order < ApplicationRecord
 
   def create_order_items
     # creation of order items
-    current_user.cart.items.each do |item|
-      OrderItem.create(item: item, order: current_user.orders.last)
+    self.user.cart.items.each do |item|
+      OrderItem.create(item: item, order: self)
     end
     # empty cart
-    current_user.cart.cart_items.each do |cart_item|
-      CartItem.destroy_each(cart_item)
-      #cart_item.destroy
+    self.user.cart.cart_items.each do |cart_item|
+      cart_item.destroy #_each(cart_item)
     end
   end
 end

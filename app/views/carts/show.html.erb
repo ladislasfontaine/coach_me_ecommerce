@@ -1,12 +1,21 @@
-<h3>Show cart</h3>
+<h3>Mon panier</h3>
 
-<% @cart.cart_items.each do |cart_item| %>
-  <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
-  <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
+<% if @cart.items == [] %>
+  <p>Pas encore d'articles dans le panier</p>
+<% else %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
+    <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
+  <% end %>
+
+  <div>
+    <%= link_to 'Passer commande', orders_path, method: 'post' %>
+  </div>
+
+  <h3>Total</h3>
+  <%= @total %> €
 <% end %>
 
-<%= link_to 'Accueil', root_path %>
-
-<h3>Total</h3>
-
-<%= @total %> €
+<div>
+  <%= link_to 'Accueil', root_path %>
+</div>
