@@ -1,0 +1,18 @@
+<h3>Mes commandes</h3>
+
+<% if @orders == [] %>
+  <p>Pas encore de commande effectuée</p>
+<% else %>
+  <% @orders.each do |order| %>
+    <p>===========================</p>
+    <%= order.created_at.strftime("Commandé le %d %b %Y à %Hh%M") %>
+    <% order.items.each do |item| %>
+      <div><%= item.title %> <%= item.price %>€</div>
+    <% end %>
+    <p>===========================</p>
+  <% end %>
+<% end %>
+
+<div>
+  <%= link_to 'Accueil', root_path %>
+</div>

@@ -7,4 +7,8 @@ class OrdersController < ApplicationController
 
 		Order.create(user: current_user)
 	end
+
+	def index
+		@orders = current_user.orders
+	end
 end

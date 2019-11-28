@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
+  <div class="collapse navbar-collapse bg-white" id="navbarColor03">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <%= link_to 'Découvrir', root_path, class: "nav-link" %>
@@ -27,7 +27,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
-            <%= link_to 'Mes articles', cart_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to 'Mon panier', cart_path(current_user.id), class: "dropdown-item" %>
           <% end %>
           <a class="dropdown-item" href="#">Adresse de livraison</a>
           <a class="dropdown-item" href="#">Paiement</a>
@@ -40,6 +40,7 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
           <%= link_to 'Mes informations', edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to 'Mes commandes', orders_path, class: "dropdown-item" %>
           <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% else %>
           <%= link_to 'Se connecter', new_user_session_path, class: "dropdown-item" %>
@@ -49,3 +50,5 @@
     </ul>
   </div>
 </nav>
+
+<div style="height: 71px;"></div>
