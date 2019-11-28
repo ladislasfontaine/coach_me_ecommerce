@@ -1,5 +1,36 @@
+<h2 class="text-center mt-5 mb-4">Votre commande</h2>
+<!-- bloc gauche, récap produits -->
+<div class="test" style="text-align: -webkit-center;">
+
+  <% @cart.cart_items.each do |cart_item| %>  
+
+  <div class="card mb-3" style="max-width: 1200px; display: flex;justify-content: center; height: 140px;">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="display: flex; justify-content: center; align-items: center;">
+        <%= image_tag cart_item.item.image_url, alt: "Produit", class:"card-img", style: "height: 120px; object-fit: contain;" %>
+      </div>
+      
+      <div class="col-md-8">
+        <div class="card-body" style="display: flex; justify-content: space-around; align-items: center; height: 100%;">
+          <h5 class="card-title"><%= cart_item.item.title %></h5>
+
+          <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
+
+          <span style="display: flex;justify-content: flex-end;font-weight: 560;">
+            Prix unitaire : <%= cart_item.item.price %> €
+            <br>
+            Livraison : offerte
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<!-- bloc gauche, récap produits -->
+
 <%= form_tag orders_path do %>
-  <article>
+  <h4 class="text-center">
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
@@ -8,11 +39,14 @@
     <label class="amount">
       <span>Total de la commande: <%= @order_amount %>€</span>
     </label>
-  </article>
+  </h4>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Création d'une commande"
-          data-amount="<%= @order_amount * 100 %>"
-          data-locale="auto"></script>
+  <div class="text-center">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Création d'une commande"
+            data-amount="<%= @order_amount * 100 %>"
+            data-locale="auto">
+    </script>
+  </div>
 <% end %>
