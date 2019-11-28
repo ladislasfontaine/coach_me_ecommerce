@@ -1,8 +1,8 @@
 <h3>Mon panier</h3>
 
-<% if @cart.items == [] %>
-  <p>Pas encore d'articles dans le panier</p>
-<% else %>
+<%# if @cart.items == [] %>
+  <%# <p>Pas encore d'articles dans le panier</p> %>
+<%# else %>
   <% @cart.cart_items.each do |cart_item| %>
     <p><%= cart_item.item.title %> <%= cart_item.item.price %></p>
     <%= link_to 'Supprimer', item_cart_item_path(1, cart_item.id), method: 'delete' %>
@@ -14,7 +14,7 @@
 
   <h3>Total</h3>
   <%= @total %> €
-<% end %>
+<%# end %>
 
 <div>
   <%= link_to 'Accueil', root_path %>
