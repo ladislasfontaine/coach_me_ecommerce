@@ -8,12 +8,12 @@ class Item < ApplicationRecord
 #initialize validations
   validates :title,
   presence: true,
-  length: { in: 6..40 }
+  length: { in: 6..100 }
 
 
   validates :description,
   presence: true,
-  length: { minimum: 100 }
+  length: { minimum: 30 }
 
   validates :image_url,
   presence: true
