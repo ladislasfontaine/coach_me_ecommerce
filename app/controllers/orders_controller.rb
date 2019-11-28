@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 		# Amount in cents
 		@order_amount = 0
 		current_user.cart.items.each{ |item| @order_amount += item.price }
-		@amount = @order_amount * 100
+		@amount = (@order_amount * 100).to_i
 	
 		customer = Stripe::Customer.create({
 			email: params[:stripeEmail],
