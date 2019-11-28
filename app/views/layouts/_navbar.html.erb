@@ -39,10 +39,11 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <% if user_signed_in? %>
-          <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "dropdown-item" %></button>
+          <%= link_to 'Mes informations', edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% else %>
-          <%= link_to 'Se connecter', new_user_session_path, class: "dropdown-item" %></button>
-          <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %></button>
+          <%= link_to 'Se connecter', new_user_session_path, class: "dropdown-item" %>
+          <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
         <% end %>
       </div>
     </ul>
