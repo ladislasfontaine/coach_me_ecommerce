@@ -1,5 +1,5 @@
 class CartItemController < ApplicationController
- # before_action :authenticate_user, only: [:create, :destroy]
+	before_action :authenticate_user!, only: [:create, :destroy]
 
 	def create
 		@item = Item.find(params[:item_id])
@@ -16,14 +16,4 @@ class CartItemController < ApplicationController
 
 		redirect_to cart_path(@cart.id)
 	end
-
-	private
-
-	def authenticate_user
-		# maybe flesh ? 
-		redirect_to new_user_session_path
-	end
-
-
-
-end # class
+end
