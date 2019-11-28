@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :cart_item
   end
-  resources :orders, only: [:create]
+  resources :orders, only: [:create, :index]
   root "items#welcome"
 end
