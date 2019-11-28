@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
-	# doit etre conecter ?
-	# ? before_action :authenticate_user, only: [ :index , :update]
+	# before_action :authenticate_user
 
+	def create
+
+		# ajouter stripe ici
+
+		Order.create(user: current_user)
+	end
 end
