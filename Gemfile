@@ -67,3 +67,4 @@ gem 'table_print'
 gem 'letter_opener', :group => :development
 gem 'dotenv-rails'
 gem 'jquery-rails'
+gem 'stripe'
