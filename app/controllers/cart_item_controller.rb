@@ -10,6 +10,7 @@ class CartItemController < ApplicationController
 	end
 
 	def destroy
+		@cart = current_user.cart
 		@cart_item = CartItem.find(params[:id])
 		@cart_item.destroy
 
