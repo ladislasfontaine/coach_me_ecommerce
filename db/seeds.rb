@@ -18,6 +18,7 @@ items = []
   # orders << Order.create(user: user)
   users << user
 end
+users << User.create!(email: "admin@yopmail.com", password: "adminadmin", is_admin: true)
 
 categories_base = ["Fitness", "Nutrition", "Cross Training", "Vêtements", "Protéines", "Musculation"]
 categories_base.each do |category|
